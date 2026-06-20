@@ -16,7 +16,7 @@ projeto_recomendacao/
 ├── data/
 │   ├── raw/            # Arquivos CSV brutos (Kaggle API)
 │   └── processed/      # Matrizes esparsas e eventos limpos
-├── images/             # Gráficos e visualizações geradas para o portfólio
+├── images/             # Gráficos e visualizações úteis
 ├── src/
 │   ├── metrics.py      # Funções vetorizadas de avaliação (NDCG, Precision, Recall)
 ├── setup_data.py       # Script de ingestão da API do Kaggle
