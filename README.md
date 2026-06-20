@@ -4,12 +4,12 @@ Este projeto foi desenvolvido como um **Estudo de Caso (Build to Learn)** focado
 
 ---
 
-> ### 💡 LinkedIn Summary Pitch (Para o seu post!)
+> ### LinkedIn Summary Pitch
 > *"Como recomendar o produto certo em um catálogo com mais de 230 mil itens? Desenvolvi um motor de recomendação personalizado utilizando Filtragem Colaborativa (ALS) e Otimização Bayesiana (Optuna) sobre os dados reais da RetailRocket. Ao aplicar limpeza de Bots e filtragem K-Core iterativa ($K=5$), reduzi a dimensionalidade da matriz esparsa em mais de 90%, gerando um ganho de **+13% no NDCG@10** e uma precisão 13x superior ao acaso. Confira o código e o estudo de caso completo abaixo!"*
 
 ---
 
-## 🛠️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 projeto_recomendacao/
@@ -29,7 +29,7 @@ projeto_recomendacao/
 
 ---
 
-## 📊 1. Análise Exploratória e o Desafio do Feedback Implícito
+## 1. Análise Exploratória e o Desafio do Feedback Implícito
 
 Em sistemas de e-commerce reais, **não temos classificações explícitas** (estrelas de 1 a 5). Temos o comportamento do usuário. Esse cenário é chamado de **Feedback Implícito**.
 
@@ -39,7 +39,7 @@ Como mostrado no gráfico abaixo (escala logarítmica), existe uma enorme dispar
 ![Funil de Eventos](images/funnel_events.png)
 
 ### O Efeito Cauda Longa (Long Tail)
-Analizando a popularidade dos produtos, identificamos o efeito da Cauda Longa. Aplicando a análise de Pareto, descobrimos que **apenas 21.3% dos produtos geram 80% de todas as interações do e-commerce**.
+Analisando a popularidade dos produtos, identificamos o efeito da Cauda Longa. Aplicando a análise de Pareto, descobrimos que **apenas 21.3% dos produtos geram 80% de todas as interações do e-commerce**.
 
 ![Cauda Longa](images/long_tail.png)
 
@@ -47,7 +47,7 @@ Analizando a popularidade dos produtos, identificamos o efeito da Cauda Longa. A
 
 ---
 
-## 🧹 2. Engenharia de Dados: Remoção de Bots e Filtro K-Core
+## 2. Engenharia de Dados: Remoção de Bots e Filtro K-Core
 
 Para treinar um modelo eficiente, precisamos limpar o ruído dos dados de navegação brutos. Implementamos dois tratamentos no script `prepare_data.py`:
 
@@ -66,7 +66,7 @@ A limpeza K-core estabilizou em **8 iterações**, reduzindo drasticamente a dim
 
 ---
 
-## 🧠 3. Modelagem e Otimização Dinâmica de Pesos com Optuna
+## 3. Modelagem e Otimização Dinâmica de Pesos com Optuna
 
 O algoritmo **ALS (Alternating Least Squares)** projeta a matriz esparsa de interações em duas matrizes de menor dimensionalidade (vetores latentes de usuários e itens). Ele minimiza a diferença entre as preferências reais e previstas utilizando a **Confiança ($c_{ui} = 1 + \alpha r_{ui}$)**, onde $r_{ui}$ é o peso acumulado das interações.
 
@@ -85,7 +85,7 @@ Ao invés de definir pesos fixos e arbitrários para as ações, configuramos o 
 
 ---
 
-## 🏆 4. Resultados e Métricas Finais
+## 4. Resultados e Métricas Finais
 
 Avaliamos o modelo final utilizando a **Validação Temporal Estrita** (treinando nos primeiros 4 meses e testando nos últimos 14 dias de transações reais). A avaliação do Top 10 obteve as seguintes métricas:
 
@@ -102,7 +102,7 @@ Ao aplicar a limpeza de dados e a otimização de pesos bayesiana, obtivemos um 
 
 ---
 
-## 🚀 Como Rodar o Projeto Localmente
+## Como Rodar o Projeto Localmente
 
 ### 1. Configurar o Ambiente
 ```bash
@@ -118,7 +118,7 @@ pip install -r requirements.txt
 
 ### 2. Configurar a API do Kaggle e Baixar Dados
 1. Baixe seu token `kaggle.json` no site do Kaggle.
-2. Coloque-o na pasta `C:\Users\Jorge\.kaggle\kaggle.json` (Windows) ou `~/.kaggle/` (Linux/macOS).
+2. Coloque-o na pasta `C:\Users\<seu_usuario>\.kaggle\kaggle.json` (Windows) ou `~/.kaggle/` (Linux/macOS).
 3. Execute o download:
 ```bash
 python setup_data.py
@@ -139,4 +139,4 @@ python train_model.py
 python generate_plots.py
 ```
 
-O modelo treinado ficará disponível no arquivo [models/als_model.pkl](file:///e:/projeto_recomendacao/models/als_model.pkl).
+O modelo treinado ficará disponível no arquivo `models/als_model.pkl`.

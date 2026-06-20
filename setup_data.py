@@ -87,7 +87,7 @@ def main():
         )
         sys.exit(1)
 
-    print("\nSetup de dados finalizado. Proximo passo: explorar os dados em notebooks/.")
+    print("\nSetup de dados finalizado. Proximo passo: python prepare_data.py")
 
 
 if __name__ == "__main__":

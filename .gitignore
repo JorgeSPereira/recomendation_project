@@ -29,4 +29,5 @@ data/processed/*
 !data/raw/
 
 # Ignorar modelos binários gerados
-models/
+models/*
+!models/.gitkeep

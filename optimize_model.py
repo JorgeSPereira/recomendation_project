@@ -123,7 +123,7 @@ def main():
     print(f"Melhor NDCG@10: {study.best_value:.5f}")
     print("Melhores parametros encontrados:")
     for param, val in study.best_params.items():
-        print(f"  • {param}: {val}")
+        print(f"  - {param}: {val}")
 
     # 4. Salvar os melhores parametros e pesos em JSON
     with open(best_params_path, "w") as f:

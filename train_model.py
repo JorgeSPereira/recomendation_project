@@ -78,7 +78,7 @@ def main():
 
     print("Configuracoes utilizadas:")
     for param, val in params.items():
-        print(f"  • {param}: {val}")
+        print(f"  - {param}: {val}")
 
     # 3. Reconstruir a matriz esparsa usando os pesos carregados
     print("\nConstruindo a matriz final de treino com os pesos calibrados...")
