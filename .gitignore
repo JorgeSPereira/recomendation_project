@@ -1,0 +1,32 @@
+# Caches e arquivos temporários do Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Ambiente Virtual
+venv/
+env/
+.env
+
+# IDEs e Sistema Operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# --- ESPECÍFICO DO PROJETO ---
+
+# Ignorar dados pesados (brutos e processados)
+data/raw/*
+data/processed/*
+
+# MAS manter os arquivos .gitkeep para garantir a estrutura de diretórios no GitHub
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/processed/
+!data/raw/
+
+# Ignorar modelos binários gerados
+models/
